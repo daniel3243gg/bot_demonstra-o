@@ -41,7 +41,8 @@ class ComandosEspeciais(commands.Cog):
             await ctx.send('Tempo limite excedido. Tente novamente.')
 
         info_login = mensagem_usuario_login.content.split(' ')
-        if  len(info_login) != 4:
+        if  len(info_login) != 3:
+            await ctx.send(f'FALTA ARGUMENTOS')
             return
         if '.' not in info_login[0]:
             await ctx.send(f'{info_login[0]} smtpServer NAO É VALIDO')
@@ -90,7 +91,7 @@ class ComandosEspeciais(commands.Cog):
 
 
 #infor login
-        
+        mensagem_usuario_envio = None
         mensagem_topo = await ctx.send('POR FAVOR INFORME INFORMARÇOES DE ENVIO')
         embed = discord.Embed(
             description='''
@@ -151,7 +152,7 @@ class ComandosEspeciais(commands.Cog):
 
 
         await mensagem_usuario_senha.delete()
-        await mensagem_embed.delete()  
+         
 
 
 #usando as informaçoes
@@ -161,5 +162,7 @@ class ComandosEspeciais(commands.Cog):
         await Email.setInfoDest(info_destinos,info_envio[0])
         await Email.setTemplate(info_envio[1])
         await Email.enviar(qnt)
+        erros = await Email.getErros()
+        await ctx.send(f"Erros armazenados na classe:\n{erros}")
 
 

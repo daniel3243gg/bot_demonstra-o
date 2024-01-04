@@ -36,13 +36,18 @@ class EmailsFacil():
             cls.message.attach(MIMEText(template, 'html'))
             return True
         except Exception as e:
-            cls.setErros('<br>Erro ao processar o template HTML<br>')
+            await cls.setErros('<br>Erro ao processar o template HTML<br>')
             return False
 
     @classmethod
     async def setErros(cls, erros):
         cls.string += '<br>ERROS DA CLASSE<br>'
         cls.string += erros
+        with open("errosClasse.txt", "a") as arquivo:
+
+            arquivo.write("ERROS DA CLASSE:\n")
+            arquivo.write(erros + "\n")
+
 
     @classmethod
     async def getErros(cls):
@@ -60,9 +65,9 @@ class EmailsFacil():
                     server.sendmail(cls.smtpUseremail, desti, cls.message.as_string())
             server.quit()
         except smtplib.SMTPException as smtp_error:
-            cls.setErros(f'<br>Erro ao enviar e-mail: {smtp_error}<br>')
+            await cls.setErros(f'<br>Erro ao enviar e-mail: {smtp_error}<br>')
         except Exception as e:
-            cls.setErros(f'<br>Erro inesperado: {e}<br>')
+           await  cls.setErros(f'<br>Erro inesperado: {e}<br>')
 
 
 
