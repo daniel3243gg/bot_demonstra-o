@@ -1,0 +1,4 @@
+ERROS DA CLASSE:
+<br>Erro inesperado: 'list' object has no attribute 'encode'<br>
+ERROS DA CLASSE:
+<br>Erro inesperado: 'list' object has no attribute 'encode'<br>
