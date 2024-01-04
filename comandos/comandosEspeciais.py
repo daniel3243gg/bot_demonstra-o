@@ -17,11 +17,11 @@ class ComandosEspeciais(commands.Cog):
         mensagem_topo = await ctx.send('POR FAVOR INSIRA SUAS INFORMAÇOES DE LOGIN NO SEGUINTE FORMATO ')
         embed = discord.Embed(
             description='''
-            **<smtpServer> <smtpPort> <smtpUseremail> <smtpSenha>**\n
+            **<smtpServer> <smtpPort> <smtpUseremail>**\n
             <smtpServer> sendo seu servidor SMTP o padrão é smtp.gmail.com\n
             <smtpPort> sendo sua porta o padrão é 587\n
             <smtpUseremail> sendo seu email de envio \n
-            <smtpSenha> sendo seu token que você ganha quando ativa verificação de duas etapas da conta email
+            
             ''',
             color=discord.Color.blue(),  # Cor do embed
         )
@@ -35,23 +35,23 @@ class ComandosEspeciais(commands.Cog):
 
         
         except asyncio.TimeoutError:
-            await mensagem_usuario_destinatarios.delete()
+            await mensagem_usuario_login.delete()
             await mensagem_embed.delete()
             await mensagem_topo.delete()
             await ctx.send('Tempo limite excedido. Tente novamente.')
 
         info_login = mensagem_usuario_login.content.split(' ')
-        if  len(info_login) != 3:
-            await ctx.send(len(info_login))
-            await ctx.send('FALTO UM ARGUMENTO')
+        if  len(info_login) != 4:
             return
-        if '@' not in info_login[0]:
-            await ctx.send('smtpServer NAO É VALIDO')
+        if '.' not in info_login[0]:
+            await ctx.send(f'{info_login[0]} smtpServer NAO É VALIDO')
+            return
         if not info_login[1].isdigit():
-            await ctx.send('smtpPort esta incorreto')
-        if '@' not in info_login[2]:
-            await ctx.send('SMTPUSEREMAIL nao é um email valido')
-
+            await ctx.send(f'{info_login[1]} smtpPort esta incorreto')
+            return   
+        if '@' not in info_login[2].strip():
+            await ctx.send(f'{info_login[2]} SMTPUSEREMAIL nao é um email valido')
+            return
         await mensagem_usuario_login.delete()
         await mensagem_embed.delete()
         await mensagem_topo.delete()
@@ -94,8 +94,9 @@ class ComandosEspeciais(commands.Cog):
         mensagem_topo = await ctx.send('POR FAVOR INFORME INFORMARÇOES DE ENVIO')
         embed = discord.Embed(
             description='''
-            **<assunto do email> <template do email>**\n
-            <template do email> sendo a sua mensagem em formatado html
+            **<assunto do email>,<template do email>,<quantidades de envio>**\n
+            <template do email> sendo a sua mensagem em formatado html**\n
+            USE AS VIRGULAS PARA SEPARAR 
             ''',
             color=discord.Color.blue(),  # Cor do embed
         )
@@ -106,10 +107,11 @@ class ComandosEspeciais(commands.Cog):
         try:
        
             mensagem_usuario_envio = await self.bot.wait_for('message', timeout=60, check=check)
+            info_envio = mensagem_usuario_envio.content.split(',')
 
             
         except asyncio.TimeoutError:
-            await mensagem_usuario_destinatarios.delete()
+            await mensagem_usuario_envio.delete()
             await mensagem_embed.delete()
             await mensagem_topo.delete()
             await ctx.send('Tempo limite excedido. Tente novamente.')
@@ -118,8 +120,8 @@ class ComandosEspeciais(commands.Cog):
         await mensagem_usuario_envio.delete()
         await mensagem_embed.delete()  
         await mensagem_topo.delete()
-        info_envio = mensagem_usuario_envio.content.split()
-        if  len(info_envio) != 1 :
+        qnt = info_envio[2]
+        if  len(info_envio) < 1 :
             await ctx.send('FALTA ARGUMENTO')
         try:
         
@@ -128,11 +130,36 @@ class ComandosEspeciais(commands.Cog):
             await ctx.send('TEMPLATE HTML INVALIDO')
 
 
+
+#infor senha
+        
+        mensagem_topo = await ctx.send('POR FAVOR INFORME SEU TOKEN DE LOGIN')
+       
+        def check(mensagem):
+            return mensagem.author == ctx.author and mensagem.channel == ctx.channel
+
+        try:
+       
+            mensagem_usuario_senha = await self.bot.wait_for('message', timeout=60, check=check)
+            info_senha = mensagem_usuario_senha.content.split(',')
+
+            
+        except asyncio.TimeoutError:
+            await mensagem_usuario_senha.delete()
+            await mensagem_topo.delete()
+            await ctx.send('Tempo limite excedido. Tente novamente.')
+
+
+        await mensagem_usuario_senha.delete()
+        await mensagem_embed.delete()  
+
+
 #usando as informaçoes
 
         Email = EmailsFacil()
-        await Email.setInfoLogin(info_login[0],info_login[1],info_login[2],info_login[3])       
-        await Email.setInfoDest(info_destinos,mensagem_usuario_envio[0])
-        await Email.setTemplate(mensagem_usuario_envio[1])
-        await Email.enviar()
+        await Email.setInfoLogin(info_login[0],info_login[1],info_login[2],info_senha)       
+        await Email.setInfoDest(info_destinos,info_envio[0])
+        await Email.setTemplate(info_envio[1])
+        await Email.enviar(qnt)
+
 
