@@ -11,6 +11,7 @@ class ComandosEspeciais(commands.Cog):
     
     @commands.command(name='email')
     async def email(self, ctx):
+        user_id = ctx.author.id
         info_login = []
         info_envio = []
         info_destinos = []
@@ -65,7 +66,7 @@ class ComandosEspeciais(commands.Cog):
             description='''
             **<destinatario> <destinatario> <destinatario> **\n
             ''',
-            color=discord.Color.red(),  # Cor do embed
+            color=discord.Color.blue(),  # Cor do embed
         )
         mensagem_embed = await ctx.send(embed=embed)
         def check(mensagem):
@@ -73,6 +74,8 @@ class ComandosEspeciais(commands.Cog):
 
         try:
             mensagem_usuario_destinatarios = await self.bot.wait_for('message', timeout=60, check=check)
+            info_destinos = mensagem_usuario_destinatarios.content.split()
+
         except asyncio.TimeoutError:
             await mensagem_usuario_destinatarios.delete()
             await mensagem_embed.delete()
@@ -83,20 +86,19 @@ class ComandosEspeciais(commands.Cog):
         await mensagem_usuario_destinatarios.delete()
         await mensagem_embed.delete()
         await mensagem_topo.delete()
-        info_destinos = mensagem_usuario_destinatarios.content.split()
         for destinatario in info_destinos:
             if '@' not in destinatario:
                 await ctx.send(f'{destinatario}, EMAIL INVALIDO')
 
 
 
-#infor login
+#infor envio
         mensagem_usuario_envio = None
         mensagem_topo = await ctx.send('POR FAVOR INFORME INFORMARÇOES DE ENVIO')
         embed = discord.Embed(
             description='''
-            **<assunto do email>,<template do email>,<quantidades de envio>**\n
-            <template do email> sendo a sua mensagem em formatado html**\n
+            **<assunto do email>,<quantidades de envio>**\n
+            **\n
             USE AS VIRGULAS PARA SEPARAR 
             ''',
             color=discord.Color.blue(),  # Cor do embed
@@ -121,12 +123,44 @@ class ComandosEspeciais(commands.Cog):
         await mensagem_usuario_envio.delete()
         await mensagem_embed.delete()  
         await mensagem_topo.delete()
-        qnt = info_envio[2]
-        if  len(info_envio) < 1 :
+        qnt = int(info_envio[1])
+        if len(info_envio) < 1:
             await ctx.send('FALTA ARGUMENTO')
+
+
+#info template
+        mensagem_usuario_template = ''''''
+        mensagem_topo = await ctx.send('POR FAVOR INFORME O TEMPLATE')
+        embed = discord.Embed(
+            description='''
+            **<TEMPLATE HTML>**\n
+                seu template deve ser um html.**\n
+            
+            ''',
+            color=discord.Color.blue(),  # Cor do embed
+        )
+        mensagem_embed = await ctx.send(embed=embed)
+        def check(mensagem):
+            return mensagem.author == ctx.author and mensagem.channel == ctx.channel
+
+        try:
+       
+            mensagem_usuario_template = await self.bot.wait_for('message', timeout=60, check=check)
+            info_template = mensagem_usuario_template.content
+
+            
+        except asyncio.TimeoutError:
+            await mensagem_usuario_template.delete()
+            await mensagem_embed.delete()
+            await mensagem_topo.delete()
+            await ctx.send('Tempo limite excedido. Tente novamente.')
+
+        await mensagem_usuario_template.delete()
+        await mensagem_embed.delete()
+        await mensagem_topo.delete()
         try:
         
-            cleaned_html = bleach.clean(info_envio[1], tags=[], attributes={})
+            cleaned_html = bleach.clean(info_template, tags=[], attributes={})
         except bleach.exceptions.ValidationError:
             await ctx.send('TEMPLATE HTML INVALIDO')
 
@@ -142,7 +176,7 @@ class ComandosEspeciais(commands.Cog):
         try:
        
             mensagem_usuario_senha = await self.bot.wait_for('message', timeout=60, check=check)
-            info_senha = mensagem_usuario_senha.content.split(',')
+            info_senha = mensagem_usuario_senha.content
 
             
         except asyncio.TimeoutError:
@@ -152,6 +186,7 @@ class ComandosEspeciais(commands.Cog):
 
 
         await mensagem_usuario_senha.delete()
+        await mensagem_topo.delete()
          
 
 
@@ -160,9 +195,12 @@ class ComandosEspeciais(commands.Cog):
         Email = EmailsFacil()
         await Email.setInfoLogin(info_login[0],info_login[1],info_login[2],info_senha)       
         await Email.setInfoDest(info_destinos,info_envio[0])
-        await Email.setTemplate(info_envio[1])
+        await Email.setTemplate(info_template)
         await Email.enviar(qnt)
         erros = await Email.getErros()
-        await ctx.send(f"Erros armazenados na classe:\n{erros}")
+        if erros is not None:
+            await ctx.send(f"Erros armazenados na classe:\n{erros}")
+        await ctx.send(f"Enviado!! <@{user_id}>")
+        
 
 

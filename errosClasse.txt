@@ -2,3 +2,7 @@ ERROS DA CLASSE:
 <br>Erro inesperado: 'list' object has no attribute 'encode'<br>
 ERROS DA CLASSE:
 <br>Erro inesperado: 'list' object has no attribute 'encode'<br>
+ERROS DA CLASSE:
+<br>Erro inesperado: 'Message' object has no attribute 'encode'<br>
+ERROS DA CLASSE:
+<br>Erro inesperado: 'str' object cannot be interpreted as an integer<br>
