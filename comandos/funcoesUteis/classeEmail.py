@@ -60,8 +60,9 @@ class EmailsFacil():
             server.starttls() 
             server.login(cls.smtpUseremail, cls.smtpToken)
             for desti in cls.destinatarios:
-                cls.message.replace_header('To', desti)  # Redefine o cabeçalho 'To' para cada destinatário
                 for _ in range(qnt):
+                    await asyncio.sleep(2)
+                    cls.message.replace_header('To', desti)
                     server.sendmail(cls.smtpUseremail, desti, cls.message.as_string())
             server.quit()
         except smtplib.SMTPException as smtp_error:

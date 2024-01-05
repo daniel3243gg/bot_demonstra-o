@@ -39,21 +39,14 @@ async def on_message(message):
     # Não esqueça de adicionar isso para garantir que os comandos funcionem
     await client.process_commands(message)
 
-    if message.content.lower().startswith('!bomdia'):
-        await message.channel.send('ola mundo, bom dia!')
+    #if message.content.lower().startswith('!bomdia'):
+     #   await message.channel.send('ola mundo, bom dia!')
 
-    if message.content.lower().startswith('!moeda'):
-        if message.author.id == 79943294200630478:
-            choice = random.randint(1, 2)
-            if choice == 1:
-                await message.add_reaction('😢')
-            if choice == 2:
-                await message.add_reaction('😢')       
-        else:
-            await message.channel.send(f"sem permissao, user do id: {message.author.id}")
+    #if message.content.lower().startswith('!moeda'):
+      
 
 # Comando básico usando o prefixo configurado
-@client.command(name='diga')
+@client.command(name='?ajuda')
 async def diga(ctx, *, mensagem):
     await ctx.send(mensagem)
 
