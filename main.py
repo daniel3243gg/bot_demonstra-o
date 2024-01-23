@@ -4,8 +4,8 @@ import os
 import asyncio
 import random
 from comandos.comandosEspeciais import ComandosEspeciais
-from comandos.comandosJogos import Xadrez
-from comandos.funcoesUteis.funcoesUteisR import carregar_configuracoes
+from comandos.JogoXadrez import Xadrez
+from comandos.Utils.funcoesUteisR import carregar_configuracoes
 intents = discord.Intents.default()
 intents.message_content = True
 

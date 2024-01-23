@@ -2,7 +2,7 @@ from discord.ext import commands
 import asyncio
 import bleach
 import discord 
-from comandos.funcoesUteis.classeEmail import EmailsFacil
+from comandos.Utils.classeEmail import EmailsFacil
 class ComandosEspeciais(commands.Cog):
 
     def __init__(self, bot):
