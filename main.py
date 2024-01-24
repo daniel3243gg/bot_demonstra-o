@@ -4,7 +4,7 @@ import os
 import asyncio
 import random
 from comandos.comandosEspeciais import ComandosEspeciais
-from comandos.JogoXadrez import Xadrez
+from comandos.JogoXadrez import XadrezJogo
 from comandos.Utils.funcoesUteisR import carregar_configuracoes
 intents = discord.Intents.default()
 intents.message_content = True
@@ -28,7 +28,7 @@ async def setup():
     comandos_especiais = ComandosEspeciais(client)
     await client.add_cog(comandos_especiais)
 
-    xadrez = Xadrez(client)
+    xadrez = XadrezJogo(client)
     await client.add_cog(xadrez)
 
 @client.event
