@@ -20,16 +20,13 @@ class Xadrez ():
                 return True
             return False
         
+        def check(self, cor: str):  
+            if cor == 'preto':
+                is_in_check = self.board.is_check(chess.BLACK)
+                return is_in_check
 
-        def check(self,cor:str):
-            if cor == 'preta':
-
-                is_black_in_check = self.board.is_check(chess.BLACK)
-                return is_black_in_check
-            
-            is_white_in_check = self.board.is_check(chess.WHITE)
-            return is_white_in_check
-        
+            is_in_check = self.board.is_check(chess.WHITE)
+            return is_in_check
         def gerarImagem(self):
             board_svg = chess.svg.board(board=self.board)
 
@@ -47,9 +44,25 @@ class Xadrez ():
             return image_bytes
 
             
-
+        def movimento_legal(self, movimento):
+            try:
+                move = chess.Move.from_uci(movimento)
+                return move in self.board.legal_moves
+            except ValueError:
+                return False
+        
         def is_game_over(self):
-            return self.board.is_game_over()
+            if self.board.is_game_over():
+                result = self.get_result()
+                if result == "1-0":
+                    return "As brancas venceram!"
+                elif result == "0-1":
+                    return "As pretas venceram!"
+                elif result == "1/2-1/2":
+                    return "O jogo terminou em empate."
+            
+            return False
+            
 
         def get_result(self):
             return self.board.result()
