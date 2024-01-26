@@ -68,7 +68,12 @@ class Xadrez ():
             return self.board.result()
 
         def get_turn(self):
-            return self.board.turn
+            cor = ''
+            if self.board.turn == chess.WHITE:
+                cor = 'branca'
+            else:
+                cor = 'preto'
+            return cor
 
 
 

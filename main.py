@@ -3,8 +3,8 @@ from discord.ext import commands
 import os
 import asyncio
 import random
-from comandos.comandosEspeciais import ComandosEspeciais
-from comandos.JogoXadrez import XadrezJogo
+from comandos.especiais.email import ComandosEspeciais
+from comandos.jogos.JogoXadrez import XadrezJogo
 from comandos.Utils.funcoesUteisR import carregar_configuracoes
 intents = discord.Intents.default()
 intents.message_content = True
