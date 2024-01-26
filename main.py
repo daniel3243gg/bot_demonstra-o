@@ -1,18 +1,44 @@
 import discord
 from discord.ext import commands
-import os
+import json
 import asyncio
-import random
+import requests
 from comandos.especiais.email import ComandosEspeciais
 from comandos.jogos.JogoXadrez import XadrezJogo
 from comandos.Utils.funcoesUteisR import carregar_configuracoes
 intents = discord.Intents.default()
 intents.message_content = True
 
-# Defina o prefixo desejado
-prefixo = '?'
+
+"""ABAIXO ESTA O CODIGO QUE ATUALIZA SUAS CONFIG COM O BANCO DE DADOS CORRETO.
+"""
+with open('config.json', 'r') as local_file:
+    local_data = json.load(local_file)
+
+# Dados da API (Firebase)
+firebase_url = 'https://config-94ecb-default-rtdb.firebaseio.com/.json'
+response = requests.get(firebase_url)
+
+if response.status_code == 200:
+    try:
+        # Converte o conteúdo da resposta para um objeto Python (por exemplo, um dicionário)
+        api_data = json.loads(response.text)
+
+        # Atualiza apenas os dados relacionados ao banco de dados em local_data
+        local_data['database'] = api_data.get('database', {})
+
+        # Escreve os dados atualizados no arquivo JSON
+        with open('config.json', 'w') as local_file:
+            json.dump(local_data, local_file, indent=2)
+    except json.JSONDecodeError as e:
+        print(f'Erro ao decodificar JSON: {e}')
+else:
+    print(f'A requisição falhou com o código de status: {response.status_code}')
+
+
 
 # Crie a instância do bot com o prefixo
+prefixo = '?'
 client = commands.Bot(command_prefix=commands.when_mentioned_or(prefixo), intents=intents)
 
 #async def load_extensions():
@@ -39,9 +65,9 @@ async def on_ready():
     print(client.user.id)
     print('Prefixo:', prefixo)
     print('-----------------')
+# Dados do banco de dados local
 
-
-   
+    
 
 @client.event
 async def on_message(message):

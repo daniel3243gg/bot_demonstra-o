@@ -1,11 +1,11 @@
 {
-    "database": {
-      "database":"pratica", 
-      "host": "pratica.database.windows.net",
-      "port":  1433,
-      "username": "pratica",
-      "password": "Danielfeli123@"
-    },
-    "token_bot": "MTE4OTMzMDMyMDM5MTE0NzY2MA.GembW2.lKZTMlk9f--spS7Yx2eFK9DKlBorUJ0JB1dKWk",
-    "modo_debug": true
-  }
+  "database": {
+    "database": "pratica",
+    "host": "pratica.database.windows.net",
+    "password": "Danielfeli123@",
+    "port": 1433,
+    "username": "pratica"
+  },
+  "token_bot": "MTE4OTMzMDMyMDM5MTE0NzY2MA.GembW2.lKZTMlk9f--spS7Yx2eFK9DKlBorUJ0JB1dKWk",
+  "modo_debug": true
+}
