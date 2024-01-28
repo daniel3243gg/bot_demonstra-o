@@ -162,7 +162,7 @@ class XadrezJogo(commands.Cog):
                         await ctx.send(file=discord.File(image_bytes, filename='tabuleiro_xadrez.png'))
                         self.finalizar(ctx)
                         return
-                    if self.chess.check(self.chess.get_turn):   #validação 6
+                    if self.chess.check():   #validação 6
                         embedcon = discord.Embed(
                             description=f'''
                             **O JOGADOR <@{self.user1 if self.chess.turn == self.chess.WHITE else self.user2}> Esta em cheque**
