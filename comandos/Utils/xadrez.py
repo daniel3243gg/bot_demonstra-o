@@ -4,6 +4,7 @@ from wand.image import Image
 from io import BytesIO
 from PIL import Image, ImageDraw
 from wand.image import Image as WandImage
+
 class Xadrez ():
         
         def __init__(self):
@@ -20,15 +21,21 @@ class Xadrez ():
                 return True
             return False
         
-        def check(self, cor: str):  
-            if cor == 'preto':
-                is_in_check = self.board.is_check(chess.BLACK)
-                return is_in_check
+        def check(self):  
 
-            is_in_check = self.board.is_check(chess.WHITE)
+
+            is_in_check = self.board.is_check()
             return is_in_check
+        
+
+        
+        
         def gerarImagem(self):
-            board_svg = chess.svg.board(board=self.board)
+            cor_do_turno = self.get_turn()
+            if cor_do_turno == 'preto':
+                board_svg = chess.svg.board(board=self.board, flipped=True)
+            else:
+                board_svg = chess.svg.board(board=self.board)
 
             # Certifique-se de que board_svg seja bytes
             board_svg_bytes = board_svg.encode('utf-8')
