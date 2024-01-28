@@ -123,87 +123,96 @@ class XadrezJogo(commands.Cog):
             return
     
     @commands.command(name='mover')
-    async def mover(self,ctx,arg):
+    async def mover(self,ctx,arg=None):
         """MOVER
-        O comando mais complexo com varias validaçoes. contendo 6 validações sendo elas 
-        1- Verificação si é uma partida nova ou nao para setar o jogador atual
-        2- Verifica si existe os dois jogadores
-        3- Verificação de posição válida
-        4- verifica si o jogador esta na vez
-        5 - verifica si o jogo acabou 
-        6 - verifica si o jogo esta em check 
+        O comando mais complexo com varias validaçoes. contendo 6 validações sendo elas
+        1 - verifica si nao contem argumentos si contem ele ativa o resto das validações si nao retorna uma mensagem ao user
+        2- Verificação si é uma partida nova ou nao para setar o jogador atual
+        3- Verifica si existe os dois jogadores
+        4- Verificação de posição válida
+        5- verifica si o jogador esta na vez
+        6 - verifica si o jogo acabou 
+        7 - verifica si o jogo esta em check 
 
         Tags: </validacao> </comando> </envia> </imagem>
         """
-        con = 0
-        arg.strip()
-        if con < 1 : #validação 1
-            jogador_atual = self.user1 if self.user1_color == 'branca' else self.user2
-        if self.user1 and self.user2: #validação 2
-            if self.chess.movimento_legal(arg): #validação 3
-                if ctx.author.id == jogador_atual:#validação 4
-                    con = 3
-                    self.chess.movimentar(arg)
-                    self.user1, self.user2 = self.user2, self.user1
-                    image_bytes = self.chess.gerarImagem()
-                    image_bytes.seek(0)
-                    await ctx.send(file=discord.File(image_bytes, filename='tabuleiro_xadrez.png'))
-                    if self.chess.is_game_over(): #validação 5
+        if arg != None:
+            con = 0
+            arg.strip()
+            arg.lower()
+            if con < 1 : #validação 1
+                jogador_atual = self.user1 if self.user1_color == 'branca' else self.user2
+            if self.user1 and self.user2: #validação 2
+                if self.chess.movimento_legal(arg): #validação 3
+                    if ctx.author.id == jogador_atual:#validação 4
+                        con = 3
+                        self.chess.movimentar(arg)
+                        self.user1, self.user2 = self.user2, self.user1
+                        image_bytes = self.chess.gerarImagem()
+                        image_bytes.seek(0)
+                        await ctx.send(file=discord.File(image_bytes, filename='tabuleiro_xadrez.png'))
+                        if self.chess.is_game_over(): #validação 5
+                            embedcon = discord.Embed(
+                            description=f'''
+                            **JOGO FINALIZADO!**
+                            RESULTADO: {self.chess.is_game_over()}
+                            ''',
+                            color=discord.Color.blue(),  # Cor do embed
+                            )
+                            await ctx.send(embed=embedcon)
+                            image_bytes = self.chess.gerarImagem()
+                            image_bytes.seek(0)
+                            await ctx.send(file=discord.File(image_bytes, filename='tabuleiro_xadrez.png'))
+                            self.finalizar(ctx)
+                            return
+                        if self.chess.check():   #validação 6
+                            embedcon = discord.Embed(
+                                description=f'''
+                                **O JOGADOR <@{self.user1 if self.chess.turn == self.chess.WHITE else self.user2}> Esta em cheque**
+                                ''',
+                                color=discord.Color.red(),  # Cor do embed
+                            )
+                            await ctx.send(embed=embedcon)
+                            image_bytes = self.chess.gerarImagem()
+                            image_bytes.seek(0)
+                            await ctx.send(file=discord.File(image_bytes, filename='tabuleiro_xadrez.png'))
+                    else:
                         embedcon = discord.Embed(
                         description=f'''
-                        **JOGO FINALIZADO!**
-                        RESULTADO: {self.chess.is_game_over()}
+                        **NAO ESTA NA SUA VEZ!! <@{ctx.author.id}> **
                         ''',
-                        color=discord.Color.blue(),  # Cor do embed
+                        color=discord.Color.red(),  # Cor do embed
                         )
                         await ctx.send(embed=embedcon)
-                        image_bytes = self.chess.gerarImagem()
-                        image_bytes.seek(0)
-                        await ctx.send(file=discord.File(image_bytes, filename='tabuleiro_xadrez.png'))
-                        self.finalizar(ctx)
-                        return
-                    if self.chess.check():   #validação 6
-                        embedcon = discord.Embed(
-                            description=f'''
-                            **O JOGADOR <@{self.user1 if self.chess.turn == self.chess.WHITE else self.user2}> Esta em cheque**
-                            ''',
-                            color=discord.Color.red(),  # Cor do embed
-                        )
-                        await ctx.send(embed=embedcon)
-                        image_bytes = self.chess.gerarImagem()
-                        image_bytes.seek(0)
-                        await ctx.send(file=discord.File(image_bytes, filename='tabuleiro_xadrez.png'))
+                        return     
                 else:
                     embedcon = discord.Embed(
-                    description=f'''
-                    **NAO ESTA NA SUA VEZ!! <@{ctx.author.id}> **
+                    description='''
+                    **Movimento nao permitido! Tente novamente.**
                     ''',
                     color=discord.Color.red(),  # Cor do embed
                     )
                     await ctx.send(embed=embedcon)
-                    return     
+                    image_bytes = self.chess.gerarImagem()
+                    image_bytes.seek(0)
+                    await ctx.send(file=discord.File(image_bytes, filename='tabuleiro_xadrez.png'))
+                    return
             else:
                 embedcon = discord.Embed(
-                description='''
-                **Movimento nao permitido! Tente novamente.**
+                description=f'''
+                **CRIE UMA PARTIDA OU ENCONTRE UM PARCEIRO!! <@{ctx.author.id}>**
                 ''',
                 color=discord.Color.red(),  # Cor do embed
                 )
                 await ctx.send(embed=embedcon)
-                image_bytes = self.chess.gerarImagem()
-                image_bytes.seek(0)
-                await ctx.send(file=discord.File(image_bytes, filename='tabuleiro_xadrez.png'))
                 return
-        else:
-            embedcon = discord.Embed(
-            description=f'''
-            **CRIE UMA PARTIDA OU ENCONTRE UM PARCEIRO!! <@{ctx.author.id}>**
-            ''',
-            color=discord.Color.red(),  # Cor do embed
-            )
-            await ctx.send(embed=embedcon)
-            return
-        
+        embedcon = discord.Embed(
+        description=f'''
+        **Digite um Codigo!<@{ctx.author.id}>**
+        ''',
+        color=discord.Color.red(),  # Cor do embed
+        )
+        await ctx.send(embed=embedcon)
 
     @commands.command(name='dessistir')
     async def dessistir(self,ctx):
