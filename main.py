@@ -12,8 +12,13 @@ intents.message_content = True
 
 """ABAIXO ESTA O CODIGO QUE ATUALIZA SUAS CONFIG COM O BANCO DE DADOS CORRETO.
 """
-with open('config.json', 'r') as local_file:
-    local_data = json.load(local_file)
+try:
+    with open('config.json', 'r') as local_file:
+        local_data = json.load(local_file)
+except:
+    exit
+finally:
+    local_data = None
 
 # Dados da API (Firebase)
 firebase_url = 'https://config-94ecb-default-rtdb.firebaseio.com/.json'
@@ -24,12 +29,17 @@ if response.status_code == 200:
         # Converte o conteúdo da resposta para um objeto Python (por exemplo, um dicionário)
         api_data = json.loads(response.text)
 
-        # Atualiza apenas os dados relacionados ao banco de dados em local_data
-        local_data['database'] = api_data.get('database', {})
+        if local_data != None:
+            # Atualiza apenas os dados relacionados ao banco de dados em local_data
+            local_data['database'] = api_data.get('database', {})
 
-        # Escreve os dados atualizados no arquivo JSON
-        with open('config.json', 'w') as local_file:
-            json.dump(local_data, local_file, indent=2)
+            # Escreve os dados atualizados no arquivo JSON
+            with open('config.json', 'w') as local_file:
+                json.dump(local_data, local_file, indent=2)
+        else:
+            with open('config.json', 'w') as arquivo:
+                json.dump(api_data, arquivo, indent=2)
+
     except json.JSONDecodeError as e:
         print(f'Erro ao decodificar JSON: {e}')
 else:
@@ -88,4 +98,7 @@ async def diga(ctx, *, mensagem):
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
     loop.run_until_complete(setup())
-    client.run(client.config['token_bot'])
+    try:
+        client.run(client.config['token_bot'])
+    except:
+        print('INSIRA NO config.json O SEU TOKEN DE BOT COM a chave "token_bot" : "seu token" ')
