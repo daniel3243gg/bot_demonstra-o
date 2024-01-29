@@ -1,4 +1,4 @@
-# import asyncio
+# import io
 
 import pyodbc
 from funcoesUteisR import carregar_configuracoes
@@ -29,7 +29,7 @@ class PDO:
         self.error = ""
 
     @classmethod
-    async def create(self):
+    def create(self):
         """
         Funçao para instanciar a classe.
 
@@ -37,36 +37,37 @@ class PDO:
             [self]: [invoca a classe e ativa a conexao com o banco.]
         """
         instance = self()
-        await instance.init()
+        instance.init()
         return instance
 
-    async def init(self):
+    def init(self):
+        
         """
         Instancia os metodos da classe pyodoc e realmente iniciar a conexao
         com o SQLSERVER
         """
 
-        await self.carregar_configuracoes()
+        self.carregar_configuracoes()
 
         self.connection_string = f"DRIVER={self.driver}; SERVER={self.server};\
             DATABASE={self.database}; UID={self.username}; PWD={self.password}"
         self.conn = pyodbc.connect(self.connection_string)
         self.cursor = self.conn.cursor()
 
-    async def carregar_configuracoes(self):
+    def carregar_configuracoes(self):
         # Chama a função para carregar as configurações
 
         """
         Carrega as config
         """
 
-        self.config = await carregar_configuracoes()
+        self.config = carregar_configuracoes()
         self.server = self.config['database']['host']
         self.database = self.config['database']['database']
         self.username = self.config['database']['username']
         self.password = self.config['database']['password']
 
-    async def query(self, query: str, *args):
+    def query(self, query: str, args:list):
         """
         Classe para pesquisas no banco
 
@@ -90,10 +91,10 @@ class PDO:
             return result_dicts
 
         except pyodbc.Error as e:
-            await self.set_errors(f"Erro ao executar a query: {e}")
+            self.set_errors(f"Erro ao executar a query: {e}")
             return None
 
-    async def insertUpdate(self, insert: str, *args):
+    def insertUpdate(self, insert: str, args:list):
         """
         Metodo para envio de valores para o banco
 
@@ -108,13 +109,13 @@ class PDO:
 
         try:
             self.cursor.execute(insert, args)  # type: ignore
-            await self.executar_commit()
+            self.executar_commit()
             return True
         except pyodbc.Error as e:
-            await self.set_errors(f"Erro ao executar o insert: {e}")
+            self.set_errors(f"Erro ao executar o insert: {e}")
             return False
 
-    async def getColunas(self, tabel: str):
+    def getColunas(self, tabel: str):
         """
         Metodo de colunas
 
@@ -133,14 +134,14 @@ class PDO:
             return columns
 
         except pyodbc.Error as e:
-            await self.set_errors(f"Erro ao executar a query: {e}")
+            self.set_errors(f"Erro ao executar a query: {e}")
             return None
 
         except TypeError as te:
-            await self.set_errors(f"Erro ao obter colunas: {te}")
+            self.set_errors(f"Erro ao obter colunas: {te}")
             return None
 
-    async def delete(self, tabel: str, condicao: str):
+    def delete(self, tabel: str, condicao: str):
         """
         Metodo Delete
 
@@ -156,14 +157,14 @@ class PDO:
         try:
             query = f"DELETE FROM {tabel} WHERE {condicao}"
             self.cursor.execute(query)  # type: ignore
-            await self.executar_commit()
+            self.executar_commit()
             return True
 
         except pyodbc.Error as e:
-            await self.set_errors(f"Erro ao executar o insert: {e}")
+            self.set_errors(f"Erro ao executar o insert: {e}")
             return False
 
-    async def executar_commit(self):
+    def executar_commit(self):
         """
         NAO USAR
         """
@@ -171,21 +172,21 @@ class PDO:
         # Executa o commit para aplicar alterações no banco de dados
         self.conn.commit()  # type: ignore
 
-    async def fechar_conexao(self):
+    def fechar_conexao(self):
         """Usar sempre que terminar o uso do banco"""
         # Fecha o cursor e a conexão ao final
         self.cursor.close()  # type: ignore
         self.conn.close()  # type: ignore
 
     # Função para setar os erros da conexao
-    async def set_errors(self, erro: str):
+    def set_errors(self, erro: str):
         self.error += '<br> ' + erro + '<br>'
         with open("errosClasse.txt", "a") as arquivo:
             arquivo.write("\n")
             arquivo.write(self.error + "\n")
 
     # Função para retornar os erros da conexao
-    async def get_errors(self):
+    def get_errors(self):
         """
         _summary_
 
@@ -195,14 +196,3 @@ class PDO:
         return self.error
 
 
-# ABAIXO TRECHO DE CODIGO PARA TESTES NA CLASSE!
-"""
-async def princp():
-    conex = await PDO.create()
-    resp = await conex.insertUpdate('UPDATE ','ID = 15')
-    print(await conex.get_errors())
-    print(resp)
-
-asyncio.run(princp())
-
-"""
