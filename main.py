@@ -13,11 +13,14 @@ intents.message_content = True
 """ABAIXO ESTA O CODIGO QUE ATUALIZA SUAS CONFIG COM O BANCO DE DADOS CORRETO.
 """
 try:
-    with open('config.json', 'r') as local_file:
+    with open('config.json', 'r+') as local_file:
         local_data = json.load(local_file)
-except:
-    exit
-finally:
+        if not local_data:
+            local_data = {}  # Inicializa como um dicionário vazio se o arquivo estiver vazio
+except json.JSONDecodeError:
+    print('Erro ao decodificar o JSON')
+except Exception as e:
+    print(f'Erro desconhecido: {e}')
     local_data = None
 
 # Dados da API (Firebase)
@@ -28,23 +31,21 @@ if response.status_code == 200:
     try:
         # Converte o conteúdo da resposta para um objeto Python (por exemplo, um dicionário)
         api_data = json.loads(response.text)
+        
+        # Criar uma cópia dos dados locais para evitar a substituição total
+        updated_data = local_data.copy() if local_data else {}
 
-        if local_data != None:
-            # Atualiza apenas os dados relacionados ao banco de dados em local_data
-            local_data['database'] = api_data.get('database', {})
+        # Atualiza apenas a parte relacionada ao banco de dados em updated_data
+        updated_data['database'] = api_data.get('database', {})
 
-            # Escreve os dados atualizados no arquivo JSON
-            with open('config.json', 'w') as local_file:
-                json.dump(local_data, local_file, indent=2)
-        else:
-            with open('config.json', 'w') as arquivo:
-                json.dump(api_data, arquivo, indent=2)
+        # Sobrescreve o arquivo 'config.json' com os dados atualizados
+        with open('config.json', 'w') as local_file:
+            json.dump(updated_data, local_file, indent=2)
 
     except json.JSONDecodeError as e:
         print(f'Erro ao decodificar JSON: {e}')
 else:
     print(f'A requisição falhou com o código de status: {response.status_code}')
-
 
 
 # Crie a instância do bot com o prefixo
