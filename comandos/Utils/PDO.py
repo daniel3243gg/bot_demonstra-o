@@ -87,8 +87,10 @@ class PDO:
             rows = self.cursor.fetchall()  # type: ignore
 
             result_dicts = [dict(zip(columns, row)) for row in rows]
-
-            return result_dicts
+            if result_dicts == []:
+                return None
+            else:
+                return result_dicts
 
         except pyodbc.Error as e:
             self.set_errors(f"Erro ao executar a query: {e}")

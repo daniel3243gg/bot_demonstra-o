@@ -182,3 +182,103 @@
 <br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
 
 <br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar o insert: ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The UPDATE statement conflicted with the FOREIGN KEY constraint "rank_ranks_nomes_FK". The conflict occurred in database "pratica", table "dbo.ranks_nomes", column \'id\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')<br>
+
+<br> Erro ao executar o insert: ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The UPDATE statement conflicted with the FOREIGN KEY constraint "rank_ranks_nomes_FK". The conflict occurred in database "pratica", table "dbo.ranks_nomes", column \'id\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')<br><br> Erro ao executar o insert: ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The INSERT statement conflicted with the FOREIGN KEY constraint "registro_ranks_ranks_nomes_qual_FK". The conflict occurred in database "pratica", table "dbo.ranks_nomes", column \'id\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar o insert: ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The UPDATE statement conflicted with the FOREIGN KEY constraint "rank_ranks_nomes_FK". The conflict occurred in database "pratica", table "dbo.ranks_nomes", column \'id\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')<br>
+
+<br> Erro ao executar o insert: ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The UPDATE statement conflicted with the FOREIGN KEY constraint "rank_ranks_nomes_FK". The conflict occurred in database "pratica", table "dbo.ranks_nomes", column \'id\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')<br><br> Erro ao executar o insert: ('23000', '[23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The INSERT statement conflicted with the FOREIGN KEY constraint "registro_ranks_ranks_nomes_qual_FK". The conflict occurred in database "pratica", table "dbo.ranks_nomes", column \'id\'. (547) (SQLExecDirectW); [23000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The statement has been terminated. (3621)')<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('08S01', '[08S01] [Microsoft][ODBC Driver 17 for SQL Server]Falha de vínculo de comunicação (0) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br><br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('22003', "[22003] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]The conversion of the varchar value '799432942006304788' overflowed an int column. (248) (SQLExecDirectW)")<br>
