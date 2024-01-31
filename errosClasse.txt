@@ -98,3 +98,87 @@
 <br> Erro ao executar a query: ('Invalid parameter type.  param-index=0 param-type=dict', 'HY105')<br><br> Erro ao executar o insert: ("A TVP's rows must be Sequence objects.", 'HY000')<br><br> Erro ao executar a query: ('Invalid parameter type.  param-index=0 param-type=dict', 'HY105')<br>
 
 <br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type nvarchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'rank_name'. (208) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('42S02', "[42S02] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Invalid object name 'ranks_name'. (208) (SQLExecDirectW)")<br>
+
+<br> Erro ao executar a query: ('42000', "[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Incorrect syntax near the keyword 'FROM'. (156) (SQLExecDirectW); [42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Statement(s) could not be prepared. (8180)")<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar o insert: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Column, parameter, or variable #1: Cannot find data type 10000092129232. (2715) (SQLExecDirectW)')<br>
