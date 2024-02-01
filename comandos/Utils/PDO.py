@@ -67,7 +67,7 @@ class PDO:
         self.username = self.config['database']['username']
         self.password = self.config['database']['password']
 
-    def query(self, query: str, args:list):
+    def query(self, query: str, *args):
         """
         Classe para pesquisas no banco
 
@@ -87,14 +87,16 @@ class PDO:
             rows = self.cursor.fetchall()  # type: ignore
 
             result_dicts = [dict(zip(columns, row)) for row in rows]
-
-            return result_dicts
+            if result_dicts == []:
+                return None
+            else:
+                return result_dicts
 
         except pyodbc.Error as e:
             self.set_errors(f"Erro ao executar a query: {e}")
             return None
 
-    def insertUpdate(self, insert: str, args:list):
+    def insertUpdate(self, insert: str, *args):
         """
         Metodo para envio de valores para o banco
 
@@ -106,7 +108,6 @@ class PDO:
             True: Ocorreu tudo certo
             False: Ocorreu algum erro no banco, o erro fica salvo em getErros
         """
-
         try:
             self.cursor.execute(insert, args)  # type: ignore
             self.executar_commit()

@@ -1,9 +1,0 @@
-from PDO import PDO
-import json
-from datetime import datetime
-
-class Rank:
-    def __init__(self):
-        self.user_id = None
-        self.rank_id = None
-        self.ranks = None

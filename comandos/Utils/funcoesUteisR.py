@@ -1,5 +1,4 @@
 import json
-
 import aiofiles
 
 
@@ -9,3 +8,5 @@ def carregar_configuracoes(caminho_arquivo="config.json"):
 
     configuracoes = json.loads(conteudo)
     return configuracoes
+
+
