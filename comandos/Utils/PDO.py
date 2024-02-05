@@ -88,13 +88,13 @@ class PDO:
 
             result_dicts = [dict(zip(columns, row)) for row in rows]
             if result_dicts == []:
-                return None
+                return False
             else:
                 return result_dicts
 
         except pyodbc.Error as e:
             self.set_errors(f"Erro ao executar a query: {e}")
-            return None
+            return False
 
     def insertUpdate(self, insert: str, *args):
         """
@@ -136,11 +136,11 @@ class PDO:
 
         except pyodbc.Error as e:
             self.set_errors(f"Erro ao executar a query: {e}")
-            return None
+            return False
 
         except TypeError as te:
             self.set_errors(f"Erro ao obter colunas: {te}")
-            return None
+            return False
 
     def delete(self, tabel: str, condicao: str):
         """
