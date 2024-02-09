@@ -6,6 +6,7 @@ import requests
 from comandos.especiais.email import ComandosEspeciais
 from comandos.jogos.JogoXadrez import XadrezJogo
 from comandos.Utils.funcoesUteisR import carregar_configuracoes
+from comandos.jogos.jogoRonda import RondaJogo
 intents = discord.Intents.default()
 intents.message_content = True
 
@@ -66,6 +67,9 @@ async def setup():
 
     xadrez = XadrezJogo(client)
     await client.add_cog(xadrez)
+
+    ronda = RondaJogo(client)
+    await client.add_cog(ronda)
 
 @client.event
 async def on_ready():

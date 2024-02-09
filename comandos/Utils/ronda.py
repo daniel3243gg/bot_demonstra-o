@@ -1,62 +1,47 @@
-from PDO import PDO
-from coins import Coins
+from comandos.Utils.PDO import PDO
+from comandos.Utils.coins import Coins
+import asyncio
 import json 
 import random
-import requests
-class Ronda:
+import aiohttp
 
+class Ronda:
     def __init__(self):
-        self.jogadores= []
+        self.jogadores = []
         self.erros = None
-        self.conx = PDO().create()
-        self.url = 'https://cartas-d2746-default-rtdb.firebaseio.com/.json'
-        self.cartas = self.defCartas()
+        self.conx = None
+        self.url ='https://cartas2-default-rtdb.firebaseio.com/.json'
+        self.cartas = None
         self.maosC = []
 
-    def defCartas(self):
+    async def initialize(self):
+        self.conx = await PDO().create()
 
-        
-        response = requests.get(self.url)
+    async def defCartas(self):
+        async with aiohttp.ClientSession() as session:
+            async with session.get(self.url) as response:
+                if response.status == 200:
+                    self.cartas = await response.json()
+                else:
+                    self.setErros(f"A requisição falhou com o código de status: {response.status}")
+                    return False
 
-        # Verifica se a requisição foi bem-sucedida (código de status 200)
-        if response.status_code == 200:
-            # Converte o conteúdo JSON da resposta para um objeto Python
-            cartas = response.json()
-
-            # Você pode manipulá-lo conforme necessário
-
-            return cartas
-        else:
-            self.setErros(f"A requisição falhou com o código  status: {response.status_code}")
-            return False
-
-    def cadastrar_user(self, jogador:str ):
-
-        resul = self.conx.query("SELECT * FROM users WHERE id_discord = ? ", jogador)
-        if resul is None:
-            a = self.conx.insertUpdate("INSERT INTO users (id_discord) VALUES (?)", jogador)
-            resp = self.conx.query("SELECT id FROM users WHERE id_discord = ?", jogador)
-            return resp[0]['id']
-        else:
-            return resul[0]['id']
-        
-        
-
-    def setErros(self,erro:str = 'Ocorreu um erro.'):
-        self.erros = '<br>'+ erro + '<br>'
+    async def setErros(self, erro: str = 'Ocorreu um erro.'):
+        self.erros = f"<br>{erro}<br>"
 
     def getErros(self):
         return self.erros
     
-    def adicionarJogadores(self,*jogadoress):
+    async def adicionarJogadores(self, *jogadores):
+        jogadores_for = jogadores[0]
+        for jogador in jogadores_for:
+            jogador = str(jogador)
+            self.jogadores.append({'jogador': jogador})
 
-        for jogador in jogadoress:
-            id = self.cadastrar_user(jogador)
-            self.jogadores.append({'jogador':jogador})
+    async def distruibuirCartas(self):
+        if self.cartas is None:
+            await self.defCartas()
 
-
-
-    def distruibuirCartas(self):
         maos = []
         n = 0
         for jogador in self.jogadores:
@@ -65,14 +50,16 @@ class Ronda:
             # Escolher uma carta aleatoriamente dentro do naipe escolhido
             carta_aleatoria = random.choice(list(self.cartas[naipe_aleatorio].keys()))
             coins = Coins()
-            coins.start(jogador['jogador'])
-            saldo = coins.consultarCoins()
-            self.maosC.append( {'carta':self.cartas[naipe_aleatorio][carta_aleatoria], 'jogador':jogador['jogador'], 'saldo': saldo} )
+            await coins.start(jogador['jogador'])
+            saldo = await coins.consultarCoins()
+            self.maosC.append({'carta': self.cartas[naipe_aleatorio][carta_aleatoria], 'jogador': jogador['jogador'], 'saldo': saldo})
             n += 1
         return self.maosC
     
+    async def jogarSimples(self,players):
+        if self.cartas is None:
+            await self.defCartas()
 
-    def jogarSimples(self):
         mesa = None
         result = {'mesa': None, 'resultado': None, 'jogador': None}
         naipe_aleatorio = random.choice(list(self.cartas.keys()))
@@ -82,40 +69,35 @@ class Ronda:
         mesa = self.cartas[naipe_aleatorio][carta_aleatoria]
         n = 0
 
-        for mao in self.maosC:
-            if mao['saldo'] < 50:
-                result = {'resultado': None , "jogador" : mao['jogador']}
+        for player in players:
+            if player['saldo'] < 50:
+                result = {'resultado': None , "jogador" : player['jogador']}
                 return result
             else:
-                if mao['carta'] == mesa:
-
-                    result = {'mesa': mesa, 'resultado': True, 'jogador': mao['jogador']}
+                if player['carta'] == mesa:
+                    result = {'mesa': mesa, 'resultado': True, 'jogador': player['jogador']}
                     coins = Coins()
-                    coins.start(str(mao['jogador']))
-                    calc = 50 * len(self.maosC)
-                    coins.inserirCoins(calc)
-                    for jogador in self.jogadores:
-                        if jogador['jogador'] == mao['jogador']:
-                            # Faça algo com o jogador encontrado
-                            # Se necessário, adicione lógica aqui
+                    await coins.start(str(player['jogador']))
+                    calc = 50 * len(players)
+                    await coins.inserirCoins(calc)
+                    for jogador in players['jogador']:
+                        if jogador['jogador'] == player['jogador']:
                             pass
                         else:
                             coins2 = Coins()
-                            coins2.start(str(jogador['jogador']))
-                            coins2.removerCoins(50)
-                    # Se encontrar uma correspondência, interromper o loop
+                            await coins2.start(str(jogador['jogador']))
+                            await coins2.removerCoins(50)
                     break
 
-        # Correção: Definir o resultado como True apenas se nenhuma correspondência for encontrada
         if result['resultado'] is None:
             result = {'mesa': mesa, 'resultado': False}
 
-
         return result
 
-    def jogarApostaFixa(self,qnt:int=0):
+    async def jogarApostaFixa(self, qnt: int = 0):
+        if self.cartas is None:
+            await self.defCartas()
 
-            
         mesa = None
         result = {'mesa': None, 'resultado': None, 'jogador': None}
         naipe_aleatorio = random.choice(list(self.cartas.keys()))
@@ -126,41 +108,36 @@ class Ronda:
         n = 0
 
         for mao in self.maosC:
-
-
             if mao['saldo'] < qnt:
                 result = {'resultado': None , "jogador" : mao['jogador']}
                 return result
             else:
                 if mao['carta'] == mesa:
                     coins = Coins()
-                    coins.start(str(mao['jogador']))
+                    await coins.start(str(mao['jogador']))
                     calc = qnt * len(self.maosC)
-                    result = {'mesa': mesa, 'resultado': True, 'jogador': mao['jogador'] , 'vitoria':calc , 'derrota': qnt}
-                    coins.inserirCoins(calc)
+                    result = {'mesa': mesa, 'resultado': True, 'jogador': mao['jogador'] , 'vitoria': calc , 'derrota': qnt}
+                    await coins.inserirCoins(calc)
                     for jogador in self.jogadores:
                         if jogador['jogador'] == mao['jogador']:
-                            # Faça algo com o jogador encontrado
-                            # Se necessário, adicione lógica aqui
                             pass
                         else:
                             coins2 = Coins()
-                            coins2.start(str(jogador['jogador']))
-                            coins2.removerCoins(qnt)
-                    # Se encontrar uma correspondência, interromper o loop
+                            await coins2.start(str(jogador['jogador']))
+                            await coins2.removerCoins(qnt)
                     break        
-        # Correção: Definir o resultado como True apenas se nenhuma correspondência for encontrada
+
             if result['resultado'] is None:
                 result = {'mesa': mesa, 'resultado': False}
 
-
         return result
 
-    def apostaLivre(self,apostas:dict):
+    async def apostaLivre(self, apostas: dict):
+        if self.cartas is None:
+            await self.defCartas()
 
         mesa = None
         result = {'mesa': None, 'resultado': None, 'jogador': None}
-
         naipe_aleatorio = random.choice(list(self.cartas.keys()))
 
         # Escolher uma carta aleatoriamente dentro do naipe escolhido
@@ -172,29 +149,26 @@ class Ronda:
             if mao['carta'] == mesa:
                 jogador_id = mao['jogador']
                 coins = Coins()
-                coins.start(str(jogador_id))
+                await coins.start(str(jogador_id))
                 calc = sum(aposta['valor'] for aposta in apostas)
                 result = {'mesa': mesa, 'resultado': True, 'jogador': jogador_id, 'vitoria': calc}
-                coins.inserirCoins(calc)
+                await coins.inserirCoins(calc)
 
                 for jogador in self.jogadores:
                     if jogador['jogador'] == jogador_id:
-                        # Faça algo com o jogador encontrado, se necessário
                         ...
                     else:
                         for aposta in apostas:
-                            print(aposta)
-                            print(jogador['jogador'])
                             if aposta['id'] == jogador['jogador']:
                                 coins2 = Coins()
-                                coins2.start(str(jogador['jogador']))
-                                coins2.removerCoins(aposta['valor'])
+                                await coins2.start(str(jogador['jogador']))
+                                await coins2.removerCoins(aposta['valor'])
 
-                # Se encontrar uma correspondência, interromper o loop
                 break
-            # Correção: Definir o resultado como True apenas se nenhuma correspondência for encontrada
+
             if result['resultado'] is None:
                 result = {'mesa': mesa, 'resultado': False}
 
         return result
-    
+
+

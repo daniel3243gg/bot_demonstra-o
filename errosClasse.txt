@@ -1,16 +1,24 @@
 
-<br> Erro ao executar o insert: ('The SQL contains 2 parameter markers, but 1 parameters were supplied', 'HY000')<br>
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
 
-<br> Erro ao executar o insert: ('The SQL contains 2 parameter markers, but 1 parameters were supplied', 'HY000')<br>
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br><br> Erro ao executar o insert: ('IM020', '[IM020] [Microsoft][ODBC Driver 17 for SQL Server]O foco do parâmetro não se refere a um parâmetro com valor de tabela (0) (SQLSetStmtAttr)')<br>
 
-<br> Erro ao executar o insert: ('The SQL contains 3 parameter markers, but 1 parameters were supplied', 'HY000')<br>
-
-<br> Erro ao executar o insert: ('The SQL contains 3 parameter markers, but 1 parameters were supplied', 'HY000')<br>
-
-<br> Erro ao executar o insert: ('The SQL contains 3 parameter markers, but 1 parameters were supplied', 'HY000')<br>
-
-<br> Erro ao executar o insert: ('The SQL contains 2 parameter markers, but 1 parameters were supplied', 'HY000')<br>
-
-<br> Erro ao executar o insert: ('The SQL contains 2 parameter markers, but 1 parameters were supplied', 'HY000')<br><br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br><br> Erro ao executar o insert: ('IM020', '[IM020] [Microsoft][ODBC Driver 17 for SQL Server]O foco do parâmetro não se refere a um parâmetro com valor de tabela (0) (SQLSetStmtAttr)')<br><br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
 
 <br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br><br> Erro ao executar o insert: ('IM020', '[IM020] [Microsoft][ODBC Driver 17 for SQL Server]O foco do parâmetro não se refere a um parâmetro com valor de tabela (0) (SQLSetStmtAttr)')<br>
+
+<br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br><br> Erro ao executar o insert: ('IM020', '[IM020] [Microsoft][ODBC Driver 17 for SQL Server]O foco do parâmetro não se refere a um parâmetro com valor de tabela (0) (SQLSetStmtAttr)')<br><br> Erro ao executar a query: ("A TVP's rows must be Sequence objects.", 'HY000')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>

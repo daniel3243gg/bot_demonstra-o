@@ -1,10 +1,7 @@
-# import io
-
 import pyodbc
-from funcoesUteisR import carregar_configuracoes
+from comandos.Utils.funcoesUteisR import carregar_configuracoes
 
 
-# classe de conexao com banco
 class PDO:
     """
     Classe para ser usado para a conexao no banco. NAO USAR DIRETAMENTE EM
@@ -29,45 +26,40 @@ class PDO:
         self.error = ""
 
     @classmethod
-    def create(self):
+    async def create(cls):
         """
-        Funçao para instanciar a classe.
+        Função para instanciar a classe.
 
         Returns:
             [self]: [invoca a classe e ativa a conexao com o banco.]
         """
-        instance = self()
-        instance.init()
+        instance = cls()
+        await instance.init()
         return instance
 
-    def init(self):
-        
+    async def init(self):
         """
         Instancia os metodos da classe pyodoc e realmente iniciar a conexao
         com o SQLSERVER
         """
-
-        self.carregar_configuracoes()
+        await self.carregar_configuracoes()
 
         self.connection_string = f"DRIVER={self.driver}; SERVER={self.server};\
             DATABASE={self.database}; UID={self.username}; PWD={self.password}"
         self.conn = pyodbc.connect(self.connection_string)
         self.cursor = self.conn.cursor()
 
-    def carregar_configuracoes(self):
-        # Chama a função para carregar as configurações
-
+    async def carregar_configuracoes(self):
         """
         Carrega as config
         """
-
-        self.config = carregar_configuracoes()
+        self.config = await carregar_configuracoes()
         self.server = self.config['database']['host']
         self.database = self.config['database']['database']
         self.username = self.config['database']['username']
         self.password = self.config['database']['password']
 
-    def query(self, query: str, *args):
+    async def query(self, query: str, *args):
         """
         Classe para pesquisas no banco
 
@@ -83,7 +75,7 @@ class PDO:
             # Executa a consulta
             self.cursor.execute(query, args)  # type: ignore
 
-            columns = [column[0] for column in self.cursor.description]  # type: ignore  # noqa: E501
+            columns = [column[0] for column in self.cursor.description]  # type: ignore
             rows = self.cursor.fetchall()  # type: ignore
 
             result_dicts = [dict(zip(columns, row)) for row in rows]
@@ -96,7 +88,7 @@ class PDO:
             self.set_errors(f"Erro ao executar a query: {e}")
             return False
 
-    def insertUpdate(self, insert: str, *args):
+    async def insertUpdate(self, insert: str, *args):
         """
         Metodo para envio de valores para o banco
 
@@ -116,7 +108,7 @@ class PDO:
             self.set_errors(f"Erro ao executar o insert: {e}")
             return False
 
-    def getColunas(self, tabel: str):
+    async def getColunas(self, tabel: str):
         """
         Metodo de colunas
 
@@ -129,9 +121,9 @@ class PDO:
 
         try:
             # Executa a consulta
-            query = f"SELECT *FROM {tabel} "
+            query = f"SELECT * FROM {tabel} "
             self.cursor.execute(query)  # type: ignore
-            columns = [column[0] for column in self.cursor.description]  # type: ignore  # noqa: E501
+            columns = [column[0] for column in self.cursor.description]  # type: ignore
             return columns
 
         except pyodbc.Error as e:
@@ -142,7 +134,7 @@ class PDO:
             self.set_errors(f"Erro ao obter colunas: {te}")
             return False
 
-    def delete(self, tabel: str, condicao: str):
+    async def delete(self, tabel: str, condicao: str):
         """
         Metodo Delete
 
@@ -195,5 +187,3 @@ class PDO:
             String: Retorna os erros que ocorreu no banco
         """
         return self.error
-
-
