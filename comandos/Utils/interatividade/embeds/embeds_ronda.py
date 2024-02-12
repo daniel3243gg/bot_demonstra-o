@@ -63,7 +63,7 @@ def embedRondaJogarBotoes(ctx, aposta: str, autor=None, users: list = None ):
         embedcon.add_field(name="Criador", value=f"<@{ctx.author.id}>", inline=True)
     embedcon.add_field(name="Valor da partida", value=aposta, inline=False)
     if users:
-        users_mention = '\n'.join([f'<@{autor}>' for user in users])
+        users_mention = '\n'.join([f'<@{user['jogador']}>' for user in users])
         embedcon.add_field(name="Jogadores do round", value=users_mention, inline=False)
 
     return embedcon
@@ -71,26 +71,17 @@ def embedRondaJogarBotoes(ctx, aposta: str, autor=None, users: list = None ):
 def embedRondaVencedor(venc,valor,dic):
      
     embedcon = discord.Embed(
-        title=f'<@{venc}> GANHOUUUUUUUU!',
+        title=f'GANHOUUUUUUUU!',
         color=discord.Color.green(),
         description= f'GANHO: {valor}'
     )
+    embedcon.add_field(name="Vencedor:",value=f'<@{venc}>', inline=False)
     embedcon.add_field(name="CARTA DA MESA:",value='--------------------', inline=False)
     embedcon.set_image(url=dic[0]['carta'])
 
     return embedcon
 
-def embedRondaDerrota(dic):
-     
-    embedcon = discord.Embed(
-        title=f'NAO HOUVE VENCEDORES!',
-        color=discord.Color.red(),
-    )
-    embedcon.add_field(name="CARTA DA MESA:",value='--------------------', inline=False)
-    embedcon.set_image(url=dic['mesa'])
 
-    return embedcon      
-     
      
 
 

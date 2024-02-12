@@ -52,45 +52,50 @@ class Ronda:
             coins = Coins()
             await coins.start(jogador['jogador'])
             saldo = await coins.consultarCoins()
-            self.maosC.append({'carta': self.cartas[naipe_aleatorio][carta_aleatoria], 'jogador': jogador['jogador'], 'saldo': saldo})
+            self.maosC.append({'carta': self.cartas[naipe_aleatorio][carta_aleatoria], 'jogador': jogador['jogador'], 'saldo': saldo, 'n': carta_aleatoria})
             n += 1
         return self.maosC
     
     async def jogarSimples(self,players):
         if self.cartas is None:
             await self.defCartas()
-
-        mesa = None
+        jogo = True
+        mesa = {}
+        cartas_usadas = []
         result = {'mesa': None, 'resultado': None, 'jogador': None}
-        naipe_aleatorio = random.choice(list(self.cartas.keys()))
 
-        # Escolher uma carta aleatoriamente dentro do naipe escolhido
-        carta_aleatoria = random.choice(list(self.cartas[naipe_aleatorio].keys()))
-        mesa = self.cartas[naipe_aleatorio][carta_aleatoria]
-        n = 0
+        while jogo:
+            naipe_aleatorio = random.choice(list(self.cartas.keys()))
+            # Escolher uma carta aleatoriamente dentro do naipe escolhido
+            carta_aleatoria = random.choice(list(self.cartas[naipe_aleatorio].keys()))
+            mesa = {'carta':self.cartas[naipe_aleatorio][carta_aleatoria],'n':carta_aleatoria}
+            n = 0
+            if cartas_usadas.count(mesa['carta']) >= 4:
+                continue
 
-        for player in players:
-            if player['saldo'] < 50:
-                result = {'resultado': None , "jogador" : player['jogador']}
-                return result
-            else:
-                if player['carta'] == mesa:
-                    result = {'mesa': mesa, 'resultado': True, 'jogador': player['jogador']}
-                    coins = Coins()
-                    await coins.start(str(player['jogador']))
-                    calc = 50 * len(players)
-                    await coins.inserirCoins(calc)
-                    for jogador in players['jogador']:
-                        if jogador['jogador'] == player['jogador']:
-                            pass
-                        else:
-                            coins2 = Coins()
-                            await coins2.start(str(jogador['jogador']))
-                            await coins2.removerCoins(50)
-                    break
-
-        if result['resultado'] is None:
-            result = {'mesa': mesa, 'resultado': False}
+            for player in players:
+                if player['saldo'] < 50:
+                    result = {'resultado': None , "jogador" : player['jogador']}
+                    return result
+                else:
+                    if player['n'] == mesa['n']:
+                        result = {'mesa': mesa['carta'], 'resultado': True, 'jogador': player['jogador']}
+                        coins = Coins()
+                        print('houve um vencedor')
+                        await coins.start(str(player['jogador']))
+                        calc = 50 * len(players)
+                        await coins.inserirCoins(calc)
+                        jogo = False
+                        for jogador in players:
+                            if jogador['jogador'] == player['jogador']:
+                                pass
+                            else:
+                                coins2 = Coins()
+                                await coins2.start(str(jogador['jogador']))
+                                await coins2.removerCoins(50)
+                            
+                        break
+                    
 
         return result
 

@@ -56,20 +56,13 @@ onexao com o 'back', instancia da classe Xadrez.
     async def roundRonda(self,ctx,users,valor, dono):
         
         result = await self.jogo.jogarSimples(users)
+        print(result)
         if result is not None:
+            print('entrou aqui')
             if result['resultado']:
                 msg = await ctx.send(embed=embeds_ronda.embedRondaVencedor(valor=valor, dic=users, venc=result['jogador']))
                 return False
-            print(result)
-            embed_message = await ctx.send(embed=embeds_ronda.embedRondaDerrota( dic=result))
-            view = ContinuarRound(dono)
-            await embed_message.edit(view=view)
-            await view.wait()
 
-            if view.value:
-                return True
-            else:
-                return False
         else: 
         
             msg = await ctx.send(f'O jogador <@{result["jogador"]}> nao tem saldo suficiente. A partida foi finalizada...')

@@ -3,6 +3,7 @@ from discord.ext import commands
 import json
 import asyncio
 import requests
+import os
 from comandos.especiais.email import ComandosEspeciais
 from comandos.jogos.JogoXadrez import XadrezJogo
 from comandos.Utils.funcoesUteisR import carregar_configuracoes
@@ -13,22 +14,29 @@ intents.message_content = True
 
 """ABAIXO ESTA O CODIGO QUE ATUALIZA SUAS CONFIG COM O BANCO DE DADOS CORRETO.
 """
-try:
-    with open('config.json', 'r') as local_file:
-        local_data = json.load(local_file)
-except FileNotFoundError:
-    local_data = None
-
-# Dados da API (Firebase)
 firebase_url = 'https://config-94ecb-default-rtdb.firebaseio.com/.json'
 response = requests.get(firebase_url)
+api_data = json.loads(response.text)
 
-if response.status_code == 200:
+
+if not os.path.exists('config.json') or os.path.getsize('config.json') == 0:
+    # Se o arquivo estiver vazio ou não existir, preencha-o diretamente com os dados da API
+    with open('config.json', 'w') as arquivo:
+        json.dump(api_data, arquivo, indent=2)
+else:
     try:
-        
-        api_data = json.loads(response.text)
+        with open('config.json', 'r') as local_file:
+            local_data = json.load(local_file)
+    except FileNotFoundError:
+        local_data = None
 
-        if local_data is not None:
+    # Dados da API (Firebase)
+
+
+    if response.status_code == 200:
+        try:
+            api_data = json.loads(response.text)
+
             # Mescla os dados locais com os dados do banco de dados
             for key, value in api_data.items():
                 local_data[key] = value
@@ -36,17 +44,11 @@ if response.status_code == 200:
             # Escreve os dados mesclados no arquivo JSON
             with open('config.json', 'w') as local_file:
                 json.dump(local_data, local_file, indent=2)
-        else:
-            # Se não houver dados locais, use os dados do banco de dados diretamente
-            with open('config.json', 'w') as arquivo:
-                json.dump(api_data, arquivo, indent=2)
 
-    except json.JSONDecodeError as e:
-        print(f'Erro ao decodificar JSON: {e}')
-else:
-    print(f'A requisição falhou com o código de status: {response.status_code}')
-
-
+        except json.JSONDecodeError as e:
+            print(f'Erro ao decodificar JSON: {e}')
+    else:
+        print(f'A requisição falhou com o código de status: {response.status_code}')
 
 # Crie a instância do bot com o prefixo
 prefixo = '?'

@@ -117,7 +117,6 @@ class CartasRonda(discord.ui.View):
         else: 
             await interaction.response.send_message(content='Você Escolheu jogar!', ephemeral=True, delete_after=5)
             for mao in self.maos:
-                print(mao)
                 if int(mao['jogador']) == interaction.user.id:
                     self.value.append(mao)
 

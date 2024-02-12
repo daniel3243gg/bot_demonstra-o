@@ -39,7 +39,7 @@ class PDO:
 
     async def init(self):
         """
-        Instancia os metodos da classe pyodoc e realmente iniciar a conexao
+        Instancia os metodos da classe pyodbc e realmente iniciar a conexao
         com o SQLSERVER
         """
         await self.carregar_configuracoes()
@@ -51,8 +51,10 @@ class PDO:
 
     async def carregar_configuracoes(self):
         """
-        Carrega as config
+        Carrega as configurações do banco de dados
         """
+        # Supondo que `carregar_configuracoes()` é uma função que carrega as configurações do banco de dados
+        # Implemente esta função conforme necessário
         self.config = await carregar_configuracoes()
         self.server = self.config['database']['host']
         self.database = self.config['database']['database']
