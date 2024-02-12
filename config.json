@@ -1,0 +1,11 @@
+{
+  "database": {
+    "database": "pratica",
+    "host": "pratica.database.windows.net",
+    "password": "Danielfeli123@",
+    "port": 1433,
+    "username": "pratica"
+  },
+  "modo_debug": true,
+  "token_bot": "MTE4OTMzMDMyMDM5MTE0NzY2MA.Gsxid0.YxQC4cND0M5ln4vMjXiemF5NBzx4reDZt-WMQ4"
+}
