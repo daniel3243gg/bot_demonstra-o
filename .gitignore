@@ -1,3 +1,8 @@
 # .gitignore
-
+venv
+__pycache__
 config.json
+tes.py
+tempCodeRunnerFile.py
+errosClasse.txt
+myenv
