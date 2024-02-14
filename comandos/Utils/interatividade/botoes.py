@@ -67,7 +67,11 @@ class EntrarRonda(discord.ui.View):
             await interaction.response.send_message(content='Você nao é o dono!', ephemeral=True, delete_after=5)
         else:
             if len(self.value) > 0:
-                await interaction.response.send_message(content='Partida iniciada!')          
+                await interaction.response.send_message(content='Partida iniciada!')
+                if len(self.value) == 1:
+                   # dic = {}
+                    self.value.append(666)   
+   
                 self.stop()
             else:
                 await interaction.response.send_message(content='Não tem jogadores!!', ephemeral=True, delete_after=5)
@@ -99,11 +103,12 @@ class EntrarRonda(discord.ui.View):
 
 
 class CartasRonda(discord.ui.View):
-    def __init__(self, embedm,maos=None, autor=None):
+    def __init__(self, embedm,maos=None, autor=None, maobot=None):
         super().__init__()
         self.maos = maos
         self.value = []
         self.url = None
+        self.maobot = maobot
         self.autor = autor
         self.valor= 0 
         self.saldo = None
@@ -128,7 +133,9 @@ class CartasRonda(discord.ui.View):
             await interaction.response.send_message(content='Você nao é o dono!', ephemeral=True, delete_after=5)
         else:
             if len(self.value) > 0:
-                await interaction.response.send_message(content='Round Iniciado')          
+                await interaction.response.send_message(content='Round Iniciado')
+                if self.maobot != None:
+                    self.value.append(self.maobot)
                 self.stop()
             else:
                 await interaction.response.send_message(content='Não tem jogadores!!', ephemeral=True, delete_after=5)

@@ -33,10 +33,11 @@ class Ronda:
         return self.erros
     
     async def adicionarJogadores(self, *jogadores):
-        jogadores_for = jogadores[0]
-        for jogador in jogadores_for:
-            jogador = str(jogador)
-            self.jogadores.append({'jogador': jogador})
+        #if len(jogadores == 1):
+            jogadores_for = jogadores[0]
+            for jogador in jogadores_for:
+                jogador = str(jogador)
+                self.jogadores.append({'jogador': jogador})
 
     async def distruibuirCartas(self):
         if self.cartas is None:

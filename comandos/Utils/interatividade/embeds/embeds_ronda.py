@@ -33,7 +33,8 @@ def embedRondaJogar(ctx, aposta: str, users: list = None , autor=None):
         embedcon.add_field(name="Criador", value=f"<@{ctx.author.id}>", inline=True)
     embedcon.add_field(name="Aposta", value=aposta, inline=False)
     if users:
-        users_mention = '\n'.join([f'<@{autor}>' for user in users])
+        print(users)
+        users_mention = '\n'.join([f'<@{user.id}>' for user in users])
         embedcon.add_field(name="Jogadores", value=users_mention, inline=False)
 
     embedcon.add_field(name='Max de jogadores', value= '10',inline=False )
@@ -75,7 +76,11 @@ def embedRondaVencedor(venc,valor,dic):
         color=discord.Color.green(),
         description= f'GANHO: {valor}'
     )
-    embedcon.add_field(name="Vencedor:",value=f'<@{venc}>', inline=False)
+    if venc == 666:
+        embedcon.add_field(name="Vencedor:",value=f'<@{venc}>', inline=False)
+    else:
+        embedcon.add_field(name="Vencedor:",value=f'O BOT VENCEU', inline=False)
+
     embedcon.add_field(name="CARTA DA MESA:",value='--------------------', inline=False)
     embedcon.set_image(url=dic[0]['carta'])
 

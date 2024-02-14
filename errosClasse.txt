@@ -1,0 +1,12 @@
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
+
+<br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br><br> Erro ao executar a query: ('42000', '[42000] [Microsoft][ODBC Driver 17 for SQL Server][SQL Server]Error converting data type varchar to bigint. (8114) (SQLExecDirectW)')<br>
